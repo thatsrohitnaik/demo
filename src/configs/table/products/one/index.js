@@ -1,1 +1,3 @@
-export const one = [{ field: 'make' }, { field: 'model' }, { field: 'price' }];
+const oneCol = [{ field: 'make' }, { field: 'model' }, { field: 'price' }];
+
+export default oneCol;

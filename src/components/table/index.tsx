@@ -3,10 +3,18 @@ import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
 
-const Table = () => {
+type TablePorps = {
+  rowData: any[];
+  columnDefs: any[];
+};
+
+const Table = (props: TablePorps) => {
   return (
     <div className="ag-theme-alpine" style={{ height: 400, width: 600 }}>
-      <AgGridReact rowData={rowData} columnDefs={columnDefs}></AgGridReact>
+      <AgGridReact
+        rowData={props.rowData}
+        columnDefs={props.columnDefs}
+      ></AgGridReact>
     </div>
   );
 };
