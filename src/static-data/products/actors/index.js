@@ -1,4 +1,4 @@
-const oneRow = [
+const actorsData = [
   {
     actor: 'Keanu, Reeves',
     movies: 134,
@@ -37,4 +37,4 @@ const oneRow = [
   },
 ];
 
-export default oneRow;
+export default actorsData;
