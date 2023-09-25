@@ -6,15 +6,13 @@ import 'ag-grid-community/styles/ag-theme-alpine.css';
 type TablePorps = {
   rowData: any[];
   columnDefs: any[];
+  rowSelection: 'multiple' | 'single';
 };
 
 const Table = (props: TablePorps) => {
   return (
     <div className="ag-theme-alpine" style={{ height: 400, width: 600 }}>
-      <AgGridReact
-        rowData={props.rowData}
-        columnDefs={props.columnDefs}
-      ></AgGridReact>
+      <AgGridReact {...props}></AgGridReact>
     </div>
   );
 };
