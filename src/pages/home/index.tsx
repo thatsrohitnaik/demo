@@ -5,21 +5,28 @@ import { getOneCols } from '../../configs/table/products/one/';
 
 const Home = () => {
   const [cols, setCols] = useState([]);
-  const [showMore, setShowMore] = useState(true);
+  const [showMore, setShowMore] = useState(false);
   const [showSrCheckbox, setShowSrCheckbox] = useState(false);
 
   useEffect(() => {
-    setCols(getOneCols(showMore, showSrCheckbox));
-  }, []);
+    const cols = getOneCols(showMore, showSrCheckbox);
+    setCols([...cols]);
+    console.log(cols, showMore);
+  }, [showMore, showSrCheckbox]);
 
   return (
     <>
-      <Table
-        rowData={oneRow}
-        columnDefs={cols}
-        rowSelection={'multiple'}
-        sideBar={true}
-      />
+      <div>
+        <button
+          onClick={() => {
+            setShowMore(!showMore);
+          }}
+        >
+          {showMore ? 'Show Less' : 'Show More'}
+        </button>
+      </div>
+      <br />
+      <Table rowData={oneRow} columnDefs={cols} rowSelection={'multiple'} />
     </>
   );
 };

@@ -1,7 +1,8 @@
 import { rowIDFormatter } from '../../../../components/table/helpers/';
 
 export const getOneCols = (more: boolean, checkbox: boolean) => {
-  const oneCol = [
+  console.log(more, checkbox);
+  let oneCol = [
     {
       headerName: 'ID',
       valueGetter: 'node.id',
