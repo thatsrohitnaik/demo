@@ -1,17 +1,17 @@
 import { rowIDFormatter } from '../../../../components/table/helpers/';
 
-export const getOneCols = (more: boolean, checkbox: boolean) => {
-  console.log(more, checkbox);
+export const getOneCols = (showMore: boolean, showSrCheckbox: boolean) => {
+  console.log(showMore, showSrCheckbox);
   let oneCol = [
     {
       headerName: 'ID',
       valueGetter: 'node.id',
       valueFormatter: rowIDFormatter,
-      checkboxSelection: more,
+      checkboxSelection: showSrCheckbox,
       field: 'id',
       width: 75,
     },
-    { field: 'actor' },
+    { field: 'actor', flex: 1 },
     {
       field: 'movies',
       cellEditor: 'agNumberCellEditor',
@@ -27,9 +27,9 @@ export const getOneCols = (more: boolean, checkbox: boolean) => {
       editable: true,
       width: 120,
     },
-    { field: 'instagram', width: 120, hide: !checkbox },
-    { field: 'twitter', width: 120, hide: !checkbox },
-    { field: 'tumblr', width: 120, hide: !checkbox },
+    { field: 'instagram', width: 120, hide: !showMore },
+    { field: 'twitter', width: 120, hide: !showMore },
+    { field: 'tumblr', width: 120, hide: !showMore },
     { field: 'pilotLicense', width: 150 },
   ];
   return oneCol;
