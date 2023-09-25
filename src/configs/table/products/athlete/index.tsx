@@ -5,8 +5,8 @@ export const getAthleteCols = (
   showSrCheckbox: boolean
 ): any[] => {
   console.log(showMore, showSrCheckbox);
-  let atheletCol: any = [];
-  atheletCol = [
+  let athleteCol: any = [];
+  athleteCol = [
     {
       headerName: 'ID',
       valueGetter: 'node.id',
@@ -36,5 +36,5 @@ export const getAthleteCols = (
     { field: 'tumblr', width: 120, hide: !showMore },
     { field: 'pilotLicense', width: 150 },
   ];
-  return atheletCol;
+  return athleteCol;
 };

@@ -1,4 +1,4 @@
-const atheletData = [
+const athleteData = [
   {
     actor: 'Keanu, Reeves',
     movies: 134,
@@ -37,4 +37,4 @@ const atheletData = [
   },
 ];
 
-export default atheletData;
+export default athleteData;
