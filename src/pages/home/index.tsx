@@ -6,7 +6,17 @@ import { getOneCols } from '../../configs/table/products/one/';
 const Home = () => {
   return (
     <>
-      <Table rowData={oneRow} getCols={getOneCols} rowSelection={'multiple'} />
+      <select
+        onChange={(e) => {
+          console.log(e.target.value);
+        }}
+      >
+        <option value={'actor'}>Actors</option>
+        <option value={'athelet'}>Athelets</option>
+      </select>
+      <br />
+      <br />
+      <Table rowData={oneRow} getCols={getOneCols} />
     </>
   );
 };

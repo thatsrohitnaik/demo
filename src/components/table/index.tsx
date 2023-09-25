@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
+import { GridReadyEvent } from 'ag-grid-community';
 
 type TablePorps = {
   rowData: any[];
@@ -31,10 +32,19 @@ const Table = (props: TablePorps) => {
     refreshCols();
   }, [showMore]);
 
-  const refreshCols = () => {
+  const onGridReady = useCallback((params: GridReadyEvent) => {
+    setAutoHeight();
+  }, []);
+
+  const setAutoHeight = useCallback(() => {
+    gridRef.current!.api.setDomLayout('autoHeight');
+    (document.querySelector<HTMLElement>('#myGrid')! as any).style.height = '';
+  }, []);
+
+  const refreshCols = useCallback(() => {
     const col: any[] = props.getCols(showMore, showSrCheckbox);
     setCols(col);
-  };
+  }, [showMore, showSrCheckbox]);
 
   return (
     <>
@@ -57,7 +67,7 @@ const Table = (props: TablePorps) => {
       </div>
       <br />
 
-      <div className="ag-theme-alpine" style={{ height: 175, width: '100%' }}>
+      <div id="myGrid" className="ag-theme-alpine" style={{ width: '100%' }}>
         <AgGridReact
           {...props}
           columnDefs={cols}
@@ -67,6 +77,9 @@ const Table = (props: TablePorps) => {
             filter: true,
             resizable: true,
           }}
+          sideBar={true}
+          suppressMenuHide={true}
+          onGridReady={onGridReady}
         ></AgGridReact>
       </div>
     </>

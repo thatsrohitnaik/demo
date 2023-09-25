@@ -15,7 +15,7 @@ export const getOneCols = (
       field: 'id',
       width: 75,
     },
-    { field: 'actor', flex: 1 },
+    { field: 'actor', flex: 1, minWidth: 200 },
     {
       field: 'movies',
       cellEditor: 'agNumberCellEditor',
