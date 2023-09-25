@@ -1,4 +1,4 @@
-import { rowIDFormatter } from '../../helpers/';
+import { rowIDFormatter } from '../../../../components/table/helpers/';
 
 const oneCol = [
   {
