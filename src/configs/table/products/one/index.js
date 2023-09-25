@@ -14,6 +14,9 @@ const oneCol = [
   { field: 'upcomingMovie', cellEditor: 'agTextCellEditor', editable: true },
   { field: 'homeTown' },
   { field: 'followers', cellEditor: 'agNumberCellEditor', editable: true },
+  { field: 'instagram' },
+  { field: 'twitter' },
+  { field: 'tumblr' },
   { field: 'pilotLicense' },
 ];
 

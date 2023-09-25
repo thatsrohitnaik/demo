@@ -6,6 +6,9 @@ const oneRow = [
     upcomingMovie: 'Ballerina',
     homeTown: 'Beirut, Lebanon',
     followers: 21001020,
+    instagram: 10234554,
+    twitter: 10023455,
+    tumblr: 743011,
     pilotLicense: false,
   },
   {
@@ -15,6 +18,9 @@ const oneRow = [
     upcomingMovie: 'Knives Out 3',
     homeTown: 'Chester, United Kingdom',
     followers: 39575859,
+    instagram: 28890666,
+    twitter: 14566656,
+    tumblr: 14324010,
     pilotLicense: false,
   },
   {
@@ -23,7 +29,10 @@ const oneRow = [
     latestMovie: 'MI: Dead Reckoning 1',
     upcomingMovie: 'MI: Dead Reckoning 2',
     homeTown: 'New York, United States',
-    followers: 19576399,
+    followers: 28687685,
+    instagram: 10999797,
+    twitter: 4555643,
+    tumblr: 13132245,
     pilotLicense: true,
   },
 ];
