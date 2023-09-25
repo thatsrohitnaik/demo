@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Table from '../../components/table/';
 import actorsData from '../../static-data/products/actors/';
-import { getOneCols } from '../../configs/table/products/actors/';
+import { getActorsCols } from '../../configs/table/products/actors/';
+import atheletData from '../../static-data/products/athelet/';
+import { getAtheletCols } from '../../configs/table/products/athelet/';
 
 const Home = () => {
   const [value, setValue] = useState('actor');
@@ -18,7 +20,7 @@ const Home = () => {
       </select>
       <br />
       <br />
-      <Table rowData={actorsData} getCols={getOneCols} />
+      <Table rowData={actorsData} getCols={getActorsCols} />
     </>
   );
 };

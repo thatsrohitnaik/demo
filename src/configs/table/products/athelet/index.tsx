@@ -1,11 +1,12 @@
 import { rowIDFormatter } from '../../../../components/table/helpers/';
 
-export const getActorsCols = (
+export const getAthleteCols = (
   showMore: boolean,
   showSrCheckbox: boolean
 ): any[] => {
-  let actorsCol: any = [];
-  actorsCol = [
+  console.log(showMore, showSrCheckbox);
+  let atheletCol: any = [];
+  atheletCol = [
     {
       headerName: 'ID',
       valueGetter: 'node.id',
@@ -35,5 +36,5 @@ export const getActorsCols = (
     { field: 'tumblr', width: 120, hide: !showMore },
     { field: 'pilotLicense', width: 150 },
   ];
-  return actorsCol;
+  return atheletCol;
 };
