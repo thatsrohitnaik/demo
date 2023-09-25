@@ -6,7 +6,8 @@ import 'ag-grid-community/styles/ag-theme-alpine.css';
 type TablePorps = {
   rowData: any[];
   columnDefs: any[];
-  rowSelection: 'multiple' | 'single';
+  rowSelection?: 'multiple' | 'single';
+  sideBar?: boolean;
 };
 
 const Table = (props: TablePorps) => {
