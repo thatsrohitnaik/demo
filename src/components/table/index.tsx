@@ -5,7 +5,7 @@ import 'ag-grid-community/styles/ag-theme-alpine.css';
 
 type TablePorps = {
   rowData: any[];
-  getCols: (showMore: boolean, showSrCheckbox: boolean) => [];
+  getCols: (showMore: boolean, showSrCheckbox: boolean) => any[];
   rowSelection?: 'multiple' | 'single';
   sideBar?: boolean;
 };
@@ -21,15 +21,20 @@ const Table = (props: TablePorps) => {
   }, []);
 
   useEffect(() => {
+    refreshCols();
     setTimeout(function () {
       redrawAllRows();
     }, 500);
-  }, [cols]);
+  }, [showSrCheckbox]);
 
   useEffect(() => {
-    const col: [] = props.getCols(showMore, showSrCheckbox);
+    refreshCols();
+  }, [showMore]);
+
+  const refreshCols = () => {
+    const col: any[] = props.getCols(showMore, showSrCheckbox);
     setCols(col);
-  }, [showMore, showSrCheckbox]);
+  };
 
   return (
     <>
