@@ -12,7 +12,7 @@ type TablePorps = {
 
 const Table = (props: TablePorps) => {
   return (
-    <div className="ag-theme-alpine" style={{ height: 400, width: 600 }}>
+    <div className="ag-theme-alpine" style={{ height: 400, width: '100%' }}>
       <AgGridReact
         {...props}
         defaultColDef={{
