@@ -7,12 +7,21 @@ import { getAthleteCols } from '../../configs/table/products/athlete/';
 
 const Home = () => {
   const [value, setValue] = useState('actor');
+  const [rowData, setRowData] = useState(actorsData);
 
+  useEffect(() => {
+    if (value === 'athlete') {
+      setRowData(athleteData);
+    } else {
+      setRowData(actorsData);
+    }
+  }, [value]);
   return (
     <>
       <select
         onChange={(e) => {
           console.log(e.target.value);
+          setValue(e.target.value);
         }}
       >
         <option value={'actor'}>Actors</option>
@@ -20,7 +29,10 @@ const Home = () => {
       </select>
       <br />
       <br />
-      <Table rowData={actorsData} getCols={getActorsCols} />
+      <Table
+        rowData={rowData}
+        getCols={value == 'actors' ? getActorsCols : getAthleteCols}
+      />
     </>
   );
 };

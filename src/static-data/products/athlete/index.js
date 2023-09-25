@@ -23,18 +23,6 @@ const athleteData = [
     tumblr: 14324010,
     pilotLicense: false,
   },
-  {
-    actor: 'Tom, Cruise',
-    movies: 122,
-    latestMovie: 'MI: Dead Reckoning 1',
-    upcomingMovie: 'MI: Dead Reckoning 2',
-    homeTown: 'New York, United States',
-    followers: 28687685,
-    instagram: 10999797,
-    twitter: 4555643,
-    tumblr: 13132245,
-    pilotLicense: true,
-  },
 ];
 
 export default athleteData;
