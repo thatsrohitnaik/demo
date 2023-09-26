@@ -16,15 +16,17 @@ export default class SubRow implements ICellRendererComp {
     if (cellBlank) {
       return;
     }
-    console.log(params.value.length);
     this.ui = document.createElement('div');
-
+    const changeValue = (e) => {
+      debugger;
+      console.log(e, params);
+    };
     let cell = '';
     params.value.map((val) => {
       if (params?.editable) {
         cell =
           cell +
-          '<div class=""><input class="ag-custom-input ag-custom-input-focus" type="number" value="' +
+          '<div class=""><input class="ag-custom-input ag-custom-input-focus" type="number" onchange="function hi(params){this.changeValue(); console.log(params)};hi()" value="' +
           val[params?.subField] +
           '">' +
           '</div>';

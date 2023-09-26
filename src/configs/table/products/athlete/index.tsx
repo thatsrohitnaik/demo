@@ -1,5 +1,5 @@
 import { rowIDFormatter } from '../../../../components/table/helpers/';
-import subRow from '../../../../components/table/renderer/subRow';
+import subRow from '../../../../components/table/renderer/subRow2';
 import { IGroupCellRendererParams } from 'ag-grid-community';
 import { ColDef, ColGroupDef, RowSpanParams } from 'ag-grid-community';
 
