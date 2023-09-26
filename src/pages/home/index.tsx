@@ -6,8 +6,8 @@ import athleteData from '../../static-data/products/athlete/';
 import { getAthleteCols } from '../../configs/table/products/athlete/';
 
 const Home = () => {
-  const [value, setValue] = useState('actor');
-  const [rowData, setRowData] = useState(actorsData);
+  const [value, setValue] = useState('athlete');
+  const [rowData, setRowData] = useState(athleteData);
 
   useEffect(() => {
     if (value === 'athlete') {
@@ -24,14 +24,14 @@ const Home = () => {
           setValue(e.target.value);
         }}
       >
-        <option value={'actor'}>Actors</option>
-        <option value={'athlete'}>Athletes</option>
+        <option value={'athlete'}>Athlete</option>
+        <option value={'actor'}>Actor</option>
       </select>
       <br />
       <br />
       <Table
         rowData={rowData}
-        getCols={value == 'actors' ? getActorsCols : getAthleteCols}
+        getCols={value == 'actor' ? getActorsCols : getAthleteCols}
       />
     </>
   );

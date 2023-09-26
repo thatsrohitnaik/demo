@@ -1,12 +1,16 @@
 import { rowIDFormatter } from '../../../../components/table/helpers/';
+import cups from '../../../../components/table/renderer/cups';
+import { IGroupCellRendererParams } from 'ag-grid-community';
+import { ColDef, ColGroupDef, RowSpanParams } from 'ag-grid-community';
 
-export const getAthleteCols = (
-  showMore: boolean,
-  showSrCheckbox: boolean
-): any[] => {
-  console.log(showMore, showSrCheckbox);
-  let athleteCol: any = [];
-  athleteCol = [
+function rowSpan(params: RowSpanParams<any>) {
+  var stats = params.data ? params.data.stats : undefined;
+  return stats.length;
+}
+
+export const getAthleteCols = (showSrCheckbox: boolean): any[] => {
+  console.log(showSrCheckbox);
+  let athleteCol: (ColDef | ColGroupDef)[] = [
     {
       headerName: 'ID',
       valueGetter: 'node.id',
@@ -15,25 +19,32 @@ export const getAthleteCols = (
       field: 'id',
       width: 75,
     },
-    { field: 'actor', flex: 1, minWidth: 200 },
+    { field: 'athlete', flex: 1, minWidth: 200 },
     {
-      field: 'movies',
+      field: 'goal',
       cellEditor: 'agNumberCellEditor',
       editable: true,
       width: 100,
     },
-    { field: 'latestMovie', cellEditor: 'agTextCellEditor' },
-    { field: 'upcomingMovie', cellEditor: 'agTextCellEditor', editable: true },
-    { field: 'homeTown' },
+    { field: 'position', cellEditor: 'agTextCellEditor' },
+    { field: 'country', cellEditor: 'agTextCellEditor' },
+    { field: 'club' },
     {
-      field: 'followers',
-      cellEditor: 'agNumberCellEditor',
-      editable: true,
+      headerName: 'Cup',
       width: 120,
+      field: 'stats',
+      autoHeight: true,
+      rowSpan: rowSpan,
+      cellRenderer: cups,
+      cellClassRules: {
+        'show-cell': 'value !== undefined',
+      },
+      cellDataType: false,
     },
-    { field: 'instagram', width: 120, hide: !showMore },
-    { field: 'twitter', width: 120, hide: !showMore },
-    { field: 'tumblr', width: 120, hide: !showMore },
+
+    { field: 'instagram', width: 120 },
+    { field: 'twitter', width: 120 },
+    { field: 'tumblr', width: 120 },
     { field: 'pilotLicense', width: 150 },
   ];
   return athleteCol;

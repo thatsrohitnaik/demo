@@ -2,11 +2,11 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
-import { GridReadyEvent } from 'ag-grid-community';
+import { GridReadyEvent, RowHeightParams } from 'ag-grid-community';
 
 type TablePorps = {
   rowData: any[];
-  getCols: (showMore: boolean, showSrCheckbox: boolean) => any[];
+  getCols: (showSrCheckbox: boolean) => any[];
   rowSelection?: 'multiple' | 'single';
   sideBar?: boolean;
 };
@@ -14,7 +14,6 @@ type TablePorps = {
 const Table = (props: TablePorps) => {
   const gridRef = useRef<AgGridReact>(null);
   const [cols, setCols] = useState([]);
-  const [showMore, setShowMore] = useState(false);
   const [showSrCheckbox, setShowSrCheckbox] = useState(false);
 
   const redrawAllRows = useCallback(() => {
@@ -30,10 +29,10 @@ const Table = (props: TablePorps) => {
 
   useEffect(() => {
     refreshCols();
-  }, [showMore]);
+  }, [props.getCols]);
 
   const onGridReady = useCallback((params: GridReadyEvent) => {
-    setAutoHeight();
+    //  setAutoHeight();
   }, []);
 
   const setAutoHeight = useCallback(() => {
@@ -42,20 +41,20 @@ const Table = (props: TablePorps) => {
   }, []);
 
   const refreshCols = useCallback(() => {
-    const col: any[] = props.getCols(showMore, showSrCheckbox);
+    const col: any[] = props.getCols(showSrCheckbox);
     setCols(col);
-  }, [showMore, showSrCheckbox]);
+  }, [showSrCheckbox, props.getCols]);
+
+  const getRowHeight = useCallback(
+    (params: RowHeightParams): number | undefined | null => {
+      return params.data.rowHeight;
+    },
+    []
+  );
 
   return (
     <>
       <div>
-        <button
-          onClick={() => {
-            setShowMore(!showMore);
-          }}
-        >
-          {showMore ? 'Show Less' : 'Show More'}
-        </button>
         <button
           style={{ marginLeft: '5px' }}
           onClick={() => {
@@ -67,7 +66,11 @@ const Table = (props: TablePorps) => {
       </div>
       <br />
 
-      <div id="myGrid" className="ag-theme-alpine" style={{ width: '100%' }}>
+      <div
+        id="myGrid"
+        className="ag-theme-alpine"
+        style={{ width: '100%', height: '400px' }}
+      >
         <AgGridReact
           {...props}
           columnDefs={cols}
@@ -77,8 +80,8 @@ const Table = (props: TablePorps) => {
             filter: true,
             resizable: true,
           }}
-          sideBar={true}
           suppressMenuHide={true}
+          suppressRowTransform={true}
           onGridReady={onGridReady}
         ></AgGridReact>
       </div>

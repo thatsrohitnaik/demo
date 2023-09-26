@@ -1,39 +1,50 @@
 import { rowIDFormatter } from '../../../../components/table/helpers/';
+import { ColDef, ColGroupDef } from 'ag-grid-community';
 
-export const getActorsCols = (
-  showMore: boolean,
-  showSrCheckbox: boolean
-): any[] => {
-  let actorsCol: any = [];
-  actorsCol = [
+export const getActorsCols = (showSrCheckbox: boolean): any[] => {
+  let actorsCol: (ColDef | ColGroupDef)[] = [
     {
-      headerName: 'ID',
-      valueGetter: 'node.id',
-      valueFormatter: rowIDFormatter,
-      checkboxSelection: showSrCheckbox,
-      field: 'id',
-      width: 75,
+      headerName: 'Actor Details',
+      children: [
+        {
+          headerName: 'ID',
+          valueGetter: 'node.id',
+          valueFormatter: rowIDFormatter,
+          checkboxSelection: showSrCheckbox,
+          field: 'id',
+          width: 75,
+        },
+        { field: 'actor', flex: 1, minWidth: 200 },
+        {
+          field: 'movies',
+          cellEditor: 'agNumberCellEditor',
+          editable: true,
+          width: 100,
+        },
+        { field: 'latestMovie', cellEditor: 'agTextCellEditor' },
+        {
+          field: 'upcomingMovie',
+          cellEditor: 'agTextCellEditor',
+          editable: true,
+        },
+        { field: 'homeTown' },
+      ],
     },
-    { field: 'actor', flex: 1, minWidth: 200 },
     {
-      field: 'movies',
-      cellEditor: 'agNumberCellEditor',
-      editable: true,
-      width: 100,
+      headerName: 'Social Media',
+      children: [
+        {
+          field: 'followers',
+          cellEditor: 'agNumberCellEditor',
+          editable: true,
+          width: 120,
+        },
+        { field: 'instagram', width: 120, columnGroupShow: 'open' },
+        { field: 'twitter', width: 120, columnGroupShow: 'open' },
+        { field: 'tumblr', width: 120, columnGroupShow: 'open' },
+        { field: 'pilotLicense', width: 150, columnGroupShow: 'open' },
+      ],
     },
-    { field: 'latestMovie', cellEditor: 'agTextCellEditor' },
-    { field: 'upcomingMovie', cellEditor: 'agTextCellEditor', editable: true },
-    { field: 'homeTown' },
-    {
-      field: 'followers',
-      cellEditor: 'agNumberCellEditor',
-      editable: true,
-      width: 120,
-    },
-    { field: 'instagram', width: 120, hide: !showMore },
-    { field: 'twitter', width: 120, hide: !showMore },
-    { field: 'tumblr', width: 120, hide: !showMore },
-    { field: 'pilotLicense', width: 150 },
   ];
   return actorsCol;
 };
