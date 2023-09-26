@@ -86,7 +86,6 @@ const Table = (props: TablePorps) => {
           suppressMenuHide={true}
           suppressRowTransform={true}
           onGridReady={onGridReady}
-          components={components}
         ></AgGridReact>
       </div>
       <br />

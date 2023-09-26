@@ -44,7 +44,6 @@ export const getAthleteCols = (showSrCheckbox: boolean): any[] => {
           autoHeight: true,
           rowSpan: rowSpan,
           cellRenderer: subRow,
-          headerComponentParams: { menuIcon: 'fa-pencil' },
           cellRendererParams: {
             subField: 'cup',
             type: 'text',
@@ -62,6 +61,9 @@ export const getAthleteCols = (showSrCheckbox: boolean): any[] => {
           autoHeight: true,
           rowSpan: rowSpan,
           cellRenderer: subRow,
+          icons: {
+            menu: '<i class="fa fa-pen" style="width: 13px"/>',
+          },
           cellRendererParams: {
             subField: 'appearance',
             type: 'number',

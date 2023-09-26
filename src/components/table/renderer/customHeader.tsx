@@ -11,6 +11,8 @@ export default (props: ICustomHeaderParams) => {
   const [noSort, setNoSort] = useState('inactive');
   const refButton = useRef(null);
 
+  console.log('cusi');
+
   const onMenuClicked = () => {
     props.showColumnMenu(refButton.current!);
   };
@@ -35,6 +37,7 @@ export default (props: ICustomHeaderParams) => {
   }, []);
 
   let menu = null;
+  debugger;
   if (props.enableMenu) {
     menu = (
       <div

@@ -19,13 +19,19 @@ export const getActorsCols = (showSrCheckbox: boolean): any[] => {
           field: 'movies',
           cellEditor: 'agNumberCellEditor',
           editable: true,
-          width: 100,
+          icons: {
+            menu: '<i class="fa fa-pen" style="width: 13px"/>',
+          },
+          width: 110,
         },
         { field: 'latestMovie', cellEditor: 'agTextCellEditor' },
         {
           field: 'upcomingMovie',
           cellEditor: 'agTextCellEditor',
           editable: true,
+          icons: {
+            menu: '<i class="fa fa-pen" style="width: 13px"/>',
+          },
         },
         { field: 'homeTown' },
       ],
@@ -37,6 +43,9 @@ export const getActorsCols = (showSrCheckbox: boolean): any[] => {
           field: 'followers',
           cellEditor: 'agNumberCellEditor',
           editable: true,
+          icons: {
+            menu: '<i class="fa fa-pen" style="width: 13px"/>',
+          },
           width: 120,
         },
         { field: 'instagram', width: 120, columnGroupShow: 'open' },
