@@ -2,7 +2,11 @@ import React from 'react';
 import { ICellRendererParams, ICellRendererComp } from 'ag-grid-community';
 import './style.css';
 
-type ICellRendererParamsCustom = ICellRendererParams & { subField: string };
+type ICellRendererParamsCustom = ICellRendererParams & {
+  subField: string;
+  type: string;
+  editable: boolean;
+};
 
 export default class SubRow implements ICellRendererComp {
   ui: any;
@@ -17,7 +21,16 @@ export default class SubRow implements ICellRendererComp {
 
     let cell = '';
     params.value.map((val) => {
-      cell = cell + '<div class="">' + val[params?.subField] + '</div>';
+      if (params?.editable) {
+        cell =
+          cell +
+          '<div class=""><input class="ag-custom-input" type="number" value="' +
+          val[params?.subField] +
+          '">' +
+          '</div>';
+      } else {
+        cell = cell + '<div class="">' + val[params?.subField] + '</div>';
+      }
     });
 
     this.ui.innerHTML = '<div class="celldisplay">' + cell + '</div>';

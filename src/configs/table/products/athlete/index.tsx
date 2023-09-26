@@ -46,6 +46,8 @@ export const getAthleteCols = (showSrCheckbox: boolean): any[] => {
           cellRenderer: subRow,
           cellRendererParams: {
             subField: 'cup',
+            type: 'text',
+            editable: false,
           },
           cellClassRules: {
             'show-cell': 'value !== undefined',
@@ -61,6 +63,8 @@ export const getAthleteCols = (showSrCheckbox: boolean): any[] => {
           cellRenderer: subRow,
           cellRendererParams: {
             subField: 'appearance',
+            type: 'number',
+            editable: true,
           },
           cellClassRules: {
             'show-cell': 'value !== undefined',
@@ -78,6 +82,8 @@ export const getAthleteCols = (showSrCheckbox: boolean): any[] => {
           cellRenderer: subRow,
           cellRendererParams: {
             subField: 'goal',
+            type: 'number',
+            editable: false,
           },
           cellClassRules: {
             'show-cell': 'value !== undefined',
@@ -93,6 +99,8 @@ export const getAthleteCols = (showSrCheckbox: boolean): any[] => {
           cellRenderer: subRow,
           cellRendererParams: {
             subField: 'assist',
+            type: 'number',
+            editable: false,
           },
           cellClassRules: {
             'show-cell': 'value !== undefined',
@@ -108,6 +116,8 @@ export const getAthleteCols = (showSrCheckbox: boolean): any[] => {
           cellRenderer: subRow,
           cellRendererParams: {
             subField: 'redCard',
+            type: 'number',
+            editable: false,
           },
           cellClassRules: {
             'show-cell': 'value !== undefined',

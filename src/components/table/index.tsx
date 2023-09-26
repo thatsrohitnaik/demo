@@ -54,18 +54,6 @@ const Table = (props: TablePorps) => {
 
   return (
     <>
-      <div>
-        <button
-          style={{ marginLeft: '5px' }}
-          onClick={() => {
-            setShowSrCheckbox(!showSrCheckbox);
-          }}
-        >
-          Selection {showSrCheckbox ? 'On' : 'Off'}
-        </button>
-      </div>
-      <br />
-
       <div
         id="myGrid"
         className="ag-theme-alpine"
@@ -84,6 +72,18 @@ const Table = (props: TablePorps) => {
           suppressRowTransform={true}
           onGridReady={onGridReady}
         ></AgGridReact>
+      </div>
+      <br />
+      <div>
+        <button
+          style={{ marginLeft: '5px' }}
+          onClick={() => {
+            setShowSrCheckbox(!showSrCheckbox);
+            gridRef.current.api.deselectAll();
+          }}
+        >
+          Selection {showSrCheckbox ? 'On' : 'Off'}
+        </button>
       </div>
     </>
   );
