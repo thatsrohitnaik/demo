@@ -1,7 +1,14 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, {
+  useState,
+  useMemo,
+  useEffect,
+  useRef,
+  useCallback,
+} from 'react';
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
+import CustomHeader from './renderer/customHeader';
 import { GridReadyEvent, RowHeightParams } from 'ag-grid-community';
 
 type TablePorps = {
@@ -52,6 +59,14 @@ const Table = (props: TablePorps) => {
     []
   );
 
+  const components = useMemo<{
+    [p: string]: any;
+  }>(() => {
+    return {
+      agColumnHeader: CustomHeader,
+    };
+  }, []);
+
   return (
     <>
       <div
@@ -71,6 +86,7 @@ const Table = (props: TablePorps) => {
           suppressMenuHide={true}
           suppressRowTransform={true}
           onGridReady={onGridReady}
+          components={components}
         ></AgGridReact>
       </div>
       <br />
