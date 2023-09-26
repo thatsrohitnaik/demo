@@ -44,6 +44,7 @@ export const getAthleteCols = (showSrCheckbox: boolean): any[] => {
           autoHeight: true,
           rowSpan: rowSpan,
           cellRenderer: subRow,
+          headerComponentParams: { menuIcon: 'fa-pencil' },
           cellRendererParams: {
             subField: 'cup',
             type: 'text',
