@@ -24,7 +24,7 @@ export default class SubRow implements ICellRendererComp {
       if (params?.editable) {
         cell =
           cell +
-          '<div class=""><input class="ag-custom-input" type="number" value="' +
+          '<div class=""><input class="ag-custom-input ag-custom-input-focus" type="number" value="' +
           val[params?.subField] +
           '">' +
           '</div>';
