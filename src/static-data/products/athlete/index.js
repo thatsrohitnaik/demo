@@ -13,21 +13,21 @@ const athleteData = [
     stats: [
       {
         cup: 'World Cup',
-        appearence: 12,
+        appearance: 12,
         goal: 5,
         assist: 1,
         redCard: 0,
       },
       {
         cup: 'EPL',
-        appearence: 32,
+        appearance: 32,
         goal: 15,
         assist: 4,
         redCard: 2,
       },
       {
-        cup: 'Champions Leage',
-        appearence: 6,
+        cup: 'Champions League',
+        appearance: 6,
         goal: 7,
         assist: 2,
         redCard: 0,
@@ -48,14 +48,14 @@ const athleteData = [
     stats: [
       {
         cup: 'World Cup',
-        appearence: 12,
+        appearance: 12,
         goal: 5,
         assist: 1,
         redCard: 0,
       },
       {
         cup: 'EPL',
-        appearence: 32,
+        appearance: 32,
         goal: 15,
         assist: 4,
         redCard: 2,

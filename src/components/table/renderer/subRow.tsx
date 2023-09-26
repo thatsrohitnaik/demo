@@ -2,10 +2,12 @@ import React from 'react';
 import { ICellRendererParams, ICellRendererComp } from 'ag-grid-community';
 import './style.css';
 
-export default class ShowCellRenderer implements ICellRendererComp {
+type ICellRendererParamsCustom = ICellRendererParams & { subField: string };
+
+export default class SubRow implements ICellRendererComp {
   ui: any;
 
-  init(params: ICellRendererParams) {
+  init(params: ICellRendererParamsCustom) {
     const cellBlank = !params.value;
     if (cellBlank) {
       return;
@@ -15,10 +17,9 @@ export default class ShowCellRenderer implements ICellRendererComp {
 
     let cell = '';
     params.value.map((val) => {
-      cell = cell + '<div class="">' + val.cup + '</div>';
+      cell = cell + '<div class="">' + val[params?.subField] + '</div>';
     });
 
-    debugger;
     this.ui.innerHTML = '<div class="celldisplay">' + cell + '</div>';
   }
 
