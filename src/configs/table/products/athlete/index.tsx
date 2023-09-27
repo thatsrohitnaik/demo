@@ -4,8 +4,8 @@ import { IGroupCellRendererParams } from 'ag-grid-community';
 import { ColDef, ColGroupDef, RowSpanParams } from 'ag-grid-community';
 
 function rowSpan(params: RowSpanParams<any>) {
-  var stats = params.data ? params.data.stats : undefined;
-  return stats.length;
+  var stats = params.data ? params.data.stats : [];
+  return stats?.length || 1;
 }
 
 export const getAthleteCols = (showSrCheckbox: boolean): any[] => {

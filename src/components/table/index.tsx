@@ -39,7 +39,7 @@ const Table = (props: TablePorps) => {
   }, [props.getCols]);
 
   const onGridReady = useCallback((params: GridReadyEvent) => {
-    //  setAutoHeight();
+    setAutoHeight();
   }, []);
 
   const setAutoHeight = useCallback(() => {
@@ -69,11 +69,7 @@ const Table = (props: TablePorps) => {
 
   return (
     <>
-      <div
-        id="myGrid"
-        className="ag-theme-alpine"
-        style={{ width: '100%', height: '400px' }}
-      >
+      <div id="myGrid" className="ag-theme-alpine" style={{ width: '100%' }}>
         <AgGridReact
           {...props}
           columnDefs={cols}
