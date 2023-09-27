@@ -4,18 +4,21 @@ import actorsData from '../../static-data/products/actors/';
 import { getActorsCols } from '../../configs/table/products/actors/';
 import athleteData from '../../static-data/products/athlete/';
 import { getAthleteCols } from '../../configs/table/products/athlete/';
+import { Storecontext } from '../../store/context';
 
 const Home = () => {
   const [value, setValue] = useState('athlete');
   const [rowData, setRowData] = useState(athleteData);
+  const { store } = React.useContext(Storecontext);
 
   useEffect(() => {
     if (value === 'athlete') {
-      setRowData(athleteData);
+      setRowData(store.athlete);
     } else {
-      setRowData(actorsData);
+      setRowData(store.actors);
     }
   }, [value]);
+
   return (
     <>
       <select
