@@ -6,9 +6,9 @@ import { Storecontext } from '../../store/context';
 import { observer } from 'mobx-react';
 
 const Home = () => {
-  const [value, setValue] = useState('athlete');
+  const [value, setValue] = useState('actor');
   const { store } = React.useContext(Storecontext);
-  const [rowData, setRowData] = useState(store.athlete);
+  const [rowData, setRowData] = useState(store.actors);
 
   useEffect(() => {
     debugger;
@@ -27,8 +27,8 @@ const Home = () => {
           setValue(e.target.value);
         }}
       >
-        <option value={'athlete'}>Athlete</option>
         <option value={'actor'}>Actor</option>
+        <option value={'athlete'}>Athlete</option>
       </select>
       <br />
       <br />
