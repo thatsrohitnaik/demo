@@ -28,6 +28,9 @@ export const getAthleteCols = (showSrCheckbox: boolean): any[] => {
           cellEditor: 'agNumberCellEditor',
           editable: true,
           width: 100,
+          icons: {
+            menu: '<i class="fa fa-pen" style="width: 13px"/>',
+          },
         },
         { field: 'position', cellEditor: 'agTextCellEditor' },
         { field: 'country', cellEditor: 'agTextCellEditor' },
