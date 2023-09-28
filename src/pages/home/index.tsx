@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import Table from '../../components/table/';
-import actorsData from '../../static-data/products/actors/';
 import { getActorsCols } from '../../configs/table/products/actors/';
-import athleteData from '../../static-data/products/athlete/';
 import { getAthleteCols } from '../../configs/table/products/athlete/';
 import { Storecontext } from '../../store/context';
+import { observer } from 'mobx-react';
 
 const Home = () => {
   const [value, setValue] = useState('athlete');
-  const [rowData, setRowData] = useState(athleteData);
   const { store } = React.useContext(Storecontext);
+  const [rowData, setRowData] = useState(store.athlete);
 
   useEffect(() => {
+    debugger;
     if (value === 'athlete') {
       setRowData(store.athlete);
     } else {
@@ -40,4 +40,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default observer(Home);

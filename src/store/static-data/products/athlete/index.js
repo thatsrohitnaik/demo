@@ -29,6 +29,7 @@ const athleteData = [
         redCard: 0,
       },
     ],
+    retired: false,
   },
   {
     athlete: 'Eric Cantona',
@@ -52,6 +53,7 @@ const athleteData = [
         redCard: 2,
       },
     ],
+    retired: true,
   },
 ];
 

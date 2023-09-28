@@ -129,6 +129,14 @@ export const getAthleteCols = (showSrCheckbox: boolean): any[] => {
         },
       ],
     },
+    {
+      headerName: '',
+      children: [
+        {
+          field: 'retired',
+        },
+      ],
+    },
   ];
   return athleteCol;
 };
